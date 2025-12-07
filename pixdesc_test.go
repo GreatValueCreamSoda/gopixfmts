@@ -1,8 +1,9 @@
 package gopixfmts_test
 
 import (
-	pixfmts "GreatValueCreamSoda/gopixfmts"
 	"testing"
+
+	pixfmts "github.com/GreatValueCreamSoda/gopixfmts"
 )
 
 func Test_PixFmtDescGet(t *testing.T) {
