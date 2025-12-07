@@ -12,6 +12,21 @@ import (
 	"unsafe"
 )
 
+type PixFmtFlag int
+
+const (
+	PixFmtFlagBigEndian PixFmtFlag = C.AV_PIX_FMT_FLAG_BE        // Pixel format is big-endian.
+	PixFmtFlagPAL       PixFmtFlag = C.AV_PIX_FMT_FLAG_PAL       // Pixel format has a palette in data[1], values are indexes in this palette.
+	PixFmtFlagBitstream PixFmtFlag = C.AV_PIX_FMT_FLAG_BITSTREAM // All values of a component are bit-wise packed end to end.
+	PixFmtFlagHWAccel   PixFmtFlag = C.AV_PIX_FMT_FLAG_HWACCEL   // Pixel format is an HW accelerated format.
+	PixFmtFlagPlanar    PixFmtFlag = C.AV_PIX_FMT_FLAG_PLANAR    // At least one pixel component is not in the first data plane.
+	PixFmtFlagRGB       PixFmtFlag = C.AV_PIX_FMT_FLAG_RGB       // The pixel format contains RGB-like data (as opposed to YUV/grayscale).
+	PixFmtFlagAlpha     PixFmtFlag = C.AV_PIX_FMT_FLAG_ALPHA     //
+	PixFmtFlagBayer     PixFmtFlag = C.AV_PIX_FMT_FLAG_BAYER     // The pixel format is following a Bayer pattern
+	PixFmtFlagFloat     PixFmtFlag = C.AV_PIX_FMT_FLAG_FLOAT     // The pixel format contains IEEE-754 floating point values. Precision (double, single, or half) should be determined by the pixel size (64, 32, or 16 bits).
+	PixFmtFlagXYZ       PixFmtFlag = C.AV_PIX_FMT_FLAG_XYZ       // The pixel format contains XYZ-like data (as opposed to YUV/RGB/grayscale).
+)
+
 // PixFmtDescRef is a Descriptor that unambiguously describes how the bits of a
 // pixel are stored in the up to 4 data planes of an image. It also stores the
 // subsampling factors and number of components.
